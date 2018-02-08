@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		body{
+			text-align: center;
+		}
+	</style>
+	<script>
+		function check_string() {
+			//input
+			var text = document.getElementById("text").value;
+			//array
+			var array = new Array()
+		    var str = document.getElementById("myTextarea").value;
+		    array = str.split(" ");
+		    var count = 0;
+			//radio
+			var radios = document.getElementsByName('choice');
+			for (var i = 0;i<radios.length; i++) {
+			    if (radios[i].checked) {
+					var status = radios[i].value;
+			    }
+			} 
+
+			if(status == "Y"){
+				for(var i=0; i<array.length;i++){
+				   	if(array[i] == text){
+				    	count++;
+				    }
+				}
+			}else{
+				for(var i=0; i<array.length;i++){
+				   	if(array[i].toUpperCase() == text.toUpperCase()){
+				    	count++;
+				    }
+				}
+			}
+			
+		    document.getElementById("show").innerHTML = count;
+		}
+	</script>
+</head>
+<body>
+	<h1>Ex - Search String Non Sensitive Case</h1>
+	<hr>
+	<div>
+		<label>Text Input : </label>
+		<textarea id="myTextarea"></textarea>
+	</div>
+	<dir>
+		<label>Sensitive Casse : </label>
+		<label class="radio-inline">
+	      <input type="radio" name="choice" checked="true" value="Y"> Yes
+	    </label>
+	    <label class="radio-inline">
+	      <input type="radio" name="choice" value="N">No
+	    </label>
+	</div>
+	<br><br>
+	<div>
+		<label>Search : </label>
+		<input type="text" name="text" id="text">
+	</div>
+	<br>
+	<div>
+		<button onclick="check_string()">search</button>
+	</div>
+	<p>Result for Search : <span id="show"></span></p>
+</body>
+</html>
