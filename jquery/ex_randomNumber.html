@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<style>
+		body{
+			text-align: center;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+		    $("#Random").click(function(){
+		        Random_Number();
+		    });
+		    $("#Send").click(function(){
+		    	Show_Answer();
+		    });
+		});
+		function Random_Number() {
+		    var x = Math.floor((Math.random() * 10) + 1);
+		    var y = Math.floor((Math.random() * 10) + 1);
+		    $("#show_random").text(x+"+"+y);
+		    $("#hidden").val(x+y);
+		}
+
+		function Show_Answer(){
+			var sum = $("#hidden").val();
+			var ans = $("#answer").val();
+			//alert(ans);
+			var text ="";
+			if(ans == sum){
+				text += "<span style=\"color: green;\">That's correct.</span>"
+			}else{
+				text += "<span style=\"color: red;\">That's wrong. The answer is.</span>"
+			}
+			$("#result").html("Result : "+text);
+		}
+	</script>
+</head>
+<body>
+	<h1>Ex - Random Number of Answer</h1>
+	<hr>
+	<button id="Random">Random Number</button>
+	<br><br>
+	<div><span id="show_random"></span> = <input type="text" name="answer" id="answer"></div>
+	<input type="hidden" name="hidden" id="hidden">
+	<br>
+	<button id="Send">Send Answer</button>
+	<br><br>
+	<div id="result">Result :</div> 
+</body>
+</html>
