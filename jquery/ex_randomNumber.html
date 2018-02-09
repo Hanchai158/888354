@@ -18,8 +18,8 @@
 		    });
 		});
 		function Random_Number() {
-		    var x = Math.floor((Math.random() * 10) + 1);
-		    var y = Math.floor((Math.random() * 10) + 1);
+		    var x = Math.floor((Math.random() * 1000) + 1);
+		    var y = Math.floor((Math.random() * 1000) + 1);
 		    $("#show_random").text(x+"+"+y);
 		    $("#hidden").val(x+y);
 		}
@@ -32,7 +32,7 @@
 			if(ans == sum){
 				text += "<span style=\"color: green;\">That's correct.</span>"
 			}else{
-				text += "<span style=\"color: red;\">That's wrong. The answer is.</span>"
+				text += "<span style=\"color: red;\">That's wrong. The answer is "+sum+".</span>"
 			}
 			$("#result").html("Result : "+text);
 		}

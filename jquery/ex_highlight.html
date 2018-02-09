@@ -14,33 +14,7 @@
 
 			$("#search").click(function() {
 			    var keyword = $("#highlight").val();
-			    $(".context").unmark().mark(keyword, {
-			      acrossElements: false,
-			      accuracy: 'partially',
-			      caseSensitive: false,
-			      className: '',
-			      diacritics: true,
-			      element: 'mark',
-			      exclude: [],
-			      iframes: false,
-			      iframesTimeout: 5000,
-			      ignoreJoiners: false,
-			      ignoreGroups: 0, // markRegExp only
-			      ignorePunctuation: [], // 
-			      wildcards: "diabled",
-			      separateWordSearch: true,
-			      synonyms: {},
-			      // callback functions
-			      done: function(totalMatches) {},
-			      each: function(element) {},
-			      filter: function(node, term, counter, totalCounter) {
-			        return true;
-			      },
-			      noMatch: function(keyword) {},
-			      // troubleshooting
-			      debug: false,
-			      log: window.console
-			    })
+			    $(".context").unmark().mark(keyword, {});
 			    var count = $("mark").length;
 				$("#result").html("found : "+count);
 			});
